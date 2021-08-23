@@ -24,4 +24,5 @@ Using technologies like artificial intelligence and machine learning, the analyz
 ## Important Links
 - [Intel Information Risk Analyser](https://ey-intel.herokuapp.com/)
 - [Intel Information Risk Analyser Dashboard](https://app.powerbi.com/links/rzrDojoSbf?ctid=b868613f-a153-49ec-a06e-990b12559e5f&pbi_source=linkShare)
-- [Design Prototype](<iframe width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=7f86f717-cef3-4b69-bc9f-bef454257bf8&autoAuth=true&ctid=b868613f-a153-49ec-a06e-990b12559e5f&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>)
+- [Design Prototype](https://www.figma.com/proto/ouuHkB2Ssg53SMgpp5W14x/Untitled?node-id=39%3A2&scaling=scale-down)
+- [IIRA Video](https://drive.google.com/file/d/1y6b_1H8muA16m473CqSPhuomHtd14_cx/view)
