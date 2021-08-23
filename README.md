@@ -19,3 +19,9 @@ Using technologies like artificial intelligence and machine learning, the analyz
 - The text analyzer evaluates the historical information for a country based on the event type and provides an impact score basis the escalation matrix for the system, to trigger an early warning signal.
 - Historical trends of the impact on geography are provided, that indicate seasonality of incidents.
  
+- [Intel Information Risk Analyser](https://ey-intel.herokuapp.com/)
+
+## Important Links
+- [Intel Information Risk Analyser](https://ey-intel.herokuapp.com/)
+- [Intel Information Risk Analyser Dashboard](https://app.powerbi.com/links/rzrDojoSbf?ctid=b868613f-a153-49ec-a06e-990b12559e5f&pbi_source=linkShare)
+- [Design Prototype](<iframe width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=7f86f717-cef3-4b69-bc9f-bef454257bf8&autoAuth=true&ctid=b868613f-a153-49ec-a06e-990b12559e5f&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>)
