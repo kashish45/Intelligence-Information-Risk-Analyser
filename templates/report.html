@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    
+    <title >EY | Report </title>
+    
+    </head>
+
+    <body>
+        
+
+        <center>
+
+            Information Hub Report
+        
+        <h2> Event: {{eventName}} &nbsp; Country: {{countryName}}</h2>
+        </center>
+        
+        
+    <center>
+    <h3> Visual Command </h3>
+            <br>        
+            {% if visual_command == "No information has been recieved" %}
+
+            No information has been recieved
+  
+          {% else %}
+  
+          {% for vcc in visual_command %}
+          
+          Date: {{vcc.Date}}<br>
+          Info: {{ vcc.Info }} <br>
+          <br>
+          {% endfor %}
+          <br>
+        
+          {% endif %}
+    
+    </center>
+        
+        <center>
+    <h3> Risk Advisory </h3>
+    <br>
+    {% if risk_advisory == "No information has been recieved" %}
+
+    No information has been recieved
+
+  {% else %}
+    {% for ra in risk_advisory %}
+    
+    Date: {{ra.Date}}<br>
+    Info: {{ ra.Info }} <br>
+    <br>
+    {% endfor %}
+
+  {% endif %}
+    <br>
+    
+    </center>    
+        
+            <center>
+    <h3> ISOS </h3>
+    <br>
+    {% if isos == "No information has been recieved" %}
+
+    No information has been recieved
+
+  {% else %}
+    {% for i in isos %}
+    
+    Date: {{i.Date}}<br>
+    Info: {{ i.Info }} <br>
+    <br>
+    {% endfor %}
+
+{% endif %}
+    <br>
+    
+    <br>
+    
+    </center>
+        
+            <center>
+    <h3> Control Risk </h3>
+    <br>
+    {% if control_risks == "No information has been recieved" %}
+
+    No information has been recieved
+
+  {% else %}
+
+    {% for cr in control_risks %}
+    
+    Date: {{cr.Date}}<br>
+    Info: {{ cr.Info }} <br>
+    <br>
+    {% endfor %}
+
+  {% endif %}
+    <br>
+    
+    </center>
+                
+    </body>
+
+
+</html>

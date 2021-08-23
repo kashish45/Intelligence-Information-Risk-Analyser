@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+      <link href="{{ url_for('static', filename='img/fav.png') }}" rel="icon">
+    <!-- <title>Responsive Navbar with Search Box | CodingNepal</title> -->
+      <link rel="stylesheet" ,type= "text/css" href="{{ url_for('static', filename = 'css/style_about.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+      
+      
+       <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      /* Create two equal columns that floats next to each other */
+      .column {
+        margin-top: 130px;
+        margin-left: 330px;
+        float: left;
+        width: 50%;
+        border-radius: 30px;
+        padding: 50px;
+        height: 300px; /* Should be removed. Only for demonstration */
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+<li class="logo"><img src="{{ url_for('static', filename='img/fav.png') }}" width="40" height="40" alt="" style="fill: aliceblue;"> Intel Information Risk Analyser</li>
+<li class="btn"><span class="fas fa-bars"></span></li>
+<div class="items">
+<li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('about')}}">About</a></li>
+        <li><a href="{{url_for('dash')}}">Dashboard</a></li>
+        <li><a href="{{url_for('info')}}">Information Hub</a></li>
+</div>
+<li class="search-icon">
+          <input type="search" placeholder="Search">
+          <label class="icon">
+            <span class="fas fa-search"></span>
+          </label>
+        </li>
+</ul>
+</nav>
+      
+   
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    
+    <p>The STIC team receives intel information from various vendors providing detail on the incident that may potentially impact EY.
+
+      As the information is continuously flowing in, it’s important to develop a solution which will read, understand, categorize and analyse the information using text analytics and AI/ML.
+      
+      It should produce information country level risk by category, give early warning signal, predict event escalation, and historical trend analysis enabling the STIC team to be ready to respond through proactive monitoring.</p>
+  </div>
+  
+</div>
+    
+
+
+
+
+
+
+    <script>
+        const menuBtn = document.querySelector(".menu-icon span");
+        const searchBtn = document.querySelector(".search-icon");
+        const cancelBtn = document.querySelector(".cancel-icon");
+        const items = document.querySelector(".nav-items");
+        const form = document.querySelector("form");
+        menuBtn.onclick = () => {
+          items.classList.add("active");
+          menuBtn.classList.add("hide");
+          searchBtn.classList.add("hide");
+          cancelBtn.classList.add("show");
+        };
+        cancelBtn.onclick = () => {
+          items.classList.remove("active");
+          menuBtn.classList.remove("hide");
+          searchBtn.classList.remove("hide");
+          cancelBtn.classList.remove("show");
+          form.classList.remove("active");
+          cancelBtn.style.color = "#ff3d00";
+        };
+        searchBtn.onclick = () => {
+          form.classList.add("active");
+          searchBtn.classList.add("hide");
+          cancelBtn.classList.add("show");
+        };
+      </script>
+    </body>
+  </html>
+  

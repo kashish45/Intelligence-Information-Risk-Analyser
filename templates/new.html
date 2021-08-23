@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+      <title>EY | Upload</title>
+    <!-- <title>Responsive Navbar with Searchbox</title> -->
+       <link href="{{ url_for('static', filename='img/fav.png') }}" rel="icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" ,type= "text/css" href="{{ url_for('static', filename = 'css/upload.css')}}">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+      
+      
+      <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      /* Create three equal columns that floats next to each other */
+      .column {
+        margin-top: 360px;
+        float: left;
+        width: 28%;
+        margin-left: 35px;
+       margin-right: 30px;
+       border-radius: 30px;
+        padding: 50px;
+        height: 180px; /* Should be removed. Only for demonstration */
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      </style>
+      
+      
+  </head>
+  <body>
+    <nav>
+      <ul>
+<li class="logo"><img src="{{ url_for('static', filename='img/fav.png') }}" width="40" height="40" alt="" style="fill: aliceblue;"> Intel Information Risk Analyser</li>
+<li class="btn"><span class="fas fa-bars"></span></li>
+<div class="items">
+<li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('about')}}">About</a></li>
+        <li><a href="{{url_for('dash')}}">Dashboard</a></li>
+        <li><a href="{{url_for('info')}}">Information Hub</a></li>
+</div>
+<li class="search-icon">
+          <input type="search" placeholder="Search">
+          <label class="icon">
+            <span class="fas fa-search"></span>
+          </label>
+        </li>
+</ul>
+</nav>
+      
+    
+      
+
+
+<div class="frame">
+	<div class="center">
+		<div class="title">
+			<h1>Drop file to upload</h1>
+		</div>
+
+                      <form action = "/uploader" name = 'myForm' method = "POST" enctype = "multipart/form-data" onsubmit="return validateForm()"required>
+            <div class="dropzone">
+                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                <input id ="my_id" type="file" name = 'files[]' multiple="true" class="upload-input" />
+            </div>
+                          <br>
+            
+            <button type="submit" class="btn" name="uploadbutton">Submit</button>
+            </form>
+
+	</div>
+</div>
+      
+      <br>
+      
+      
+      <div class="row">
+  <div class="column" style="background-color:#B3B3B3;">
+    <!-- <h2>Column 1</h2> -->
+    <p>From the input mail content, the text analyzer categorizes each email as one of the four source types, based on the email sender’s domain address.</p>
+  </div>
+  <div class="column" style="background-color:#B3B3B3;">
+    <!-- <h2>Column 2</h2> -->
+    <p>The text analyzer categorizes each email under one of the ten risk types, based on the keywords.</p>
+  </div>
+  <div class="column" style="background-color:#B3B3B3;">
+    <!-- <h2>Column 3</h2> -->
+    <p> Analyzer evaluates the historical information for a country based on the event type and provides an impact score basis the escalation matrix to trigger an early warning signal.</p>
+  </div>
+</div>
+
+      {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>
+         <div class = 'message'>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+             
+             
+             
+           <button class="btn"  {% if not enable %}disabled{%endif%} ><a href="{{url_for('info')}}">Information Hub</a></button>     
+             
+        </div>
+    </ul>
+  {% endif %}
+{% endwith %}
+     
+<!-- original pen: https://codepen.io/roydigerhund/pen/ZQdbeN  -->
+
+<!-- NO JS ADDED YET -->
+
+
+
+
+<script>
+    $('nav ul li.btn span').click(function(){
+      $('nav ul div.items').toggleClass("show");
+      $('nav ul li.btn span').toggleClass("show");
+    });
+  </script>
+
+  <script>
+
+function validateForm() {
+  var x = document.forms["myForm"]["files[]"].value;
+  if (x == "") {
+    alert("Atleast one pdf should be selected");
+    return false;
+  }
+}
+
+  </script>
+
+</body>
+</html>

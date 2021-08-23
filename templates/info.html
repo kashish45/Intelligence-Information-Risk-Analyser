@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Info Hub</title>
+  <!-- <title>Responsive Navbar with Searchbox</title> -->
+  <link rel="stylesheet" ,type="text/css" href="{{ url_for('static', filename = 'css/hub.css')}}">
+  <link href="{{ url_for('static', filename='img/fav.png') }}" rel="icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+
+<style>
+  /* Remove default bullets */
+  ul,
+  #myUL {
+    list-style-type: none;
+  }
+
+  /* Remove margins and padding from the parent ul */
+  #myUL {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Style the caret/arrow */
+  .caret {
+    cursor: pointer;
+    user-select: none;
+    /* Prevent text selection */
+  }
+
+  /* Create the caret/arrow with a unicode, and style it */
+  .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+  /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+  .caret-down::before {
+    transform: rotate(90deg);
+  }
+
+  /* Hide the nested list */
+  .nested {
+    display: none;
+  }
+
+  /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+  .active {
+    display: block;
+  }
+</style>
+
+
+<style>
+  body {
+    /* background-image: url(cool-background.png);
+              background-size: 1600px 1000px; */
+    background-color: #DEDEDE;
+  }
+
+  .company {
+
+    background-color: #EECE3C;
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-left: 50px;
+    align-content: center;
+    text-align: center;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    overflow: hidden;
+    border-radius: 0px;
+    font-size: 22px;
+    text-transform: capitalize;
+    color: #f2f2f2;
+    height: auto;
+
+  }
+
+
+
+
+  .btn {
+    background-color: #ffcc13;
+    border: none;
+    color: black;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 70px;
+    float: right;
+    margin-left: 70px;
+  }
+
+
+
+  /* Darker background on mouse-over */
+  .btn:hover {
+    background-color: lightskyblue;
+  }
+
+  .noMargin {
+    margin: 0px;
+  }
+
+
+
+  div.grid {
+    margin-left: 220px;
+    display: grid;
+    box-shadow: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+    grid-column-gap: 0px;
+  }
+
+  div div {
+    height: 30vh;
+    width: 80%;
+    margin-right: 70px;
+    box-shadow: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    margin-left: 70px;
+    background-color: #BEBEBE;
+  }
+</style>
+
+<style>
+  label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+  }
+
+  input,
+  label {
+    margin: .4rem 0;
+  }
+</style>
+
+
+
+
+<div class=left-menu>
+  <br>
+  <h3>Country</h3>
+  <br>
+  <hr>
+
+  <br>
+
+  <form action="\goButton" method="post">
+
+    <select id="countryOption" name="countryOption" required>
+
+      <h3>
+        {{countryList}}
+        <option value="" selected disabled>Select Country</option>
+        {% for data in countryList %}
+        <option value={{data}} class=others>{{data}}</option>
+        {% endfor %}
+      </h3>
+    </select>
+
+    <br><br>
+    <h3>Events</h3>
+
+    <br>
+    <hr>
+
+    <br>
+
+    <select id="eventOption" name="eventOption" required>
+
+      <h3>
+        {{eventList}}
+        <option value="" selected disabled>Select Event</option>
+        {% for dataE in eventList %}
+        <option value={{dataE}} class=others>{{dataE}}</option>
+        {% endfor %}
+      </h3>
+    </select>
+    <br><br>
+
+    <hr>
+    <label for="start">
+      <h3>Date:</h3>
+    </label>
+
+    <input type="date" id="start" name="trip-start" value="2021/06/13" min="2020/01/01" max="2021/12/31">
+    <br><br>
+
+    <input type="submit" value="Submit!">
+
+  </form>
+
+
+  {% if update_event %}
+
+    <br>
+    <!---------------- TREE STRUCTURE --------------->
+    <ul id="myUL">
+
+      <li><span class="caret">Event : Bengal Violence</span>
+        <ul class="nested">
+          <li><a href = "{{url_for('bengal1')}}">Update 1.0</a></li>
+          <li><a href = "{{url_for('bengal2')}}">Update 2.0</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </form>
+  <br>
+  {% endif %}
+
+  <!---------------- TREE STRUCTURE  END --------------->
+  
+
+
+
+
+  <br>
+  <hr>
+  <br>
+  {% if (not checkEmpty) and (isOpened) %}
+  Country: {{countryName}}
+  <br>
+  Event: {{eventName}}
+  <br>
+
+
+  {% endif %}
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<body>
+  <nav>
+    <ul>
+      <li class="logo"><img src="{{ url_for('static', filename='img/fav.png') }}" width="40" height="40" alt=""
+          style="fill: aliceblue;">
+        <font color='white'> Intel Information Risk Analyser</font>
+      </li>
+      <li class="btn"><span class="fas fa-bars"></span></li>
+      <div class="items">
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('about')}}">About</a></li>
+        <li><a href="{{url_for('dash')}}">Dashboard</a></li>
+        <li><a href="{{url_for('info')}}">Information Hub</a></li>
+      </div>
+
+
+
+      <li class="search-icon">
+        <input type="search" placeholder="Search">
+        <label class="icon">
+          <span class="fas fa-search"></span>
+        </label>
+      </li>
+
+    </ul>
+  </nav>
+
+  <br>
+
+  <center>
+    {% if checkEmpty %}
+    <h3>
+      <font color=red>No information of {{eventName}} from {{countryName}}, Please select another country or event.
+      </font>
+    </h3>
+    {% endif %}
+
+    {% if not isOpened %}
+    <h3>
+      <font color=red>Please select a country and event</font>
+    </h3>
+    {% endif %}
+  </center>
+
+  <section id="info-container">
+
+    <!-- <h3 style="color: brown;" class="h-primary center"><center>Intelligence Information Hub</center></h3> -->
+    <br>
+    <br>
+    <br>
+
+
+
+
+    <div class="grid">
+
+
+      <div>
+        <div class="company">
+          <center>Visual Command Center</center>
+        </div>
+        <br>
+
+        {% if visual_command == "No information has been recieved" %}
+
+          No information has been recieved
+
+        {% else %}
+
+        {% for vcc in visual_command %}
+        
+        Date: {{vcc.Date}}<br>
+        Info: {{ vcc.Info }} <br>
+        <br>
+        {% endfor %}
+        <br>
+      
+        {% endif %}
+        
+      </div>
+
+      <div>
+        <div class="company">
+          <center>Control Risk</center>
+        </div>
+        <br>
+        {% if control_risks == "No information has been recieved" %}
+
+        No information has been recieved
+
+      {% else %}
+
+        {% for cr in control_risks %}
+        
+        Date: {{cr.Date}}<br>
+        Info: {{ cr.Info }} <br>
+        <br>
+        {% endfor %}
+
+      {% endif %}
+        <br>
+      </div>
+      <div>
+        <div class="company">
+          <center>Risk Advisory</center>
+        </div>
+        <br>
+        {% if risk_advisory == "No information has been recieved" %}
+
+        No information has been recieved
+
+      {% else %}
+        {% for ra in risk_advisory %}
+        
+        Date: {{ra.Date}}<br>
+        Info: {{ ra.Info }} <br>
+        <br>
+        {% endfor %}
+
+      {% endif %}
+        <br>
+        
+
+
+      </div>
+      <div>
+        <div class="company">
+          <center>International SOS</center>
+        </div>
+        <br>
+        {% if isos == "No information has been recieved" %}
+
+        No information has been recieved
+
+      {% else %}
+        {% for i in isos %}
+        
+        Date: {{i.Date}}<br>
+        Info: {{ i.Info }} <br>
+        <br>
+        {% endfor %}
+        <br>
+        
+        {% endif %}
+
+      </div>
+    </div>
+
+
+
+    <br>
+
+
+
+    <button class="btn"><i class="fa fa-download"></i><a href="{{url_for('pdfDown')}}">Download Now</a></button>
+
+
+  </section>
+
+  <script>
+    var toggler = document.getElementsByClassName("caret");
+    var i;
+
+    for (i = 0; i < toggler.length; i++) {
+      toggler[i].addEventListener("click", function () {
+        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.classList.toggle("caret-down");
+      });
+    }
+  </script>
+
+
+
+  <script>
+    $('nav ul li.btn span').click(function () {
+      $('nav ul div.items').toggleClass("show");
+      $('nav ul li.btn span').toggleClass("show");
+    });
+  </script>
+
+</body>
+
+</html>
