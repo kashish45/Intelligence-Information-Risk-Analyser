@@ -26,3 +26,6 @@ Using technologies like artificial intelligence and machine learning, the analyz
 - [Intel Information Risk Analyser Dashboard](https://app.powerbi.com/links/rzrDojoSbf?ctid=b868613f-a153-49ec-a06e-990b12559e5f&pbi_source=linkShare)
 - [Design Prototype](https://www.figma.com/proto/ouuHkB2Ssg53SMgpp5W14x/Untitled?node-id=39%3A2&scaling=scale-down)
 - [IIRA Video](https://drive.google.com/file/d/1y6b_1H8muA16m473CqSPhuomHtd14_cx/view)
+
+### Check this out :)
+![gifEY](https://user-images.githubusercontent.com/46473550/130459370-4702b0d9-be34-42f0-ae1b-f32808546831.gif)
